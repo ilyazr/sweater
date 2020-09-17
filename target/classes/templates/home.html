@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .testDiv {
+            border: solid 1px black;
+            display: inline-block;
+            text-align: justify;
+            height: 150px;
+            margin: 10px;
+            width: auto;
+        }
+        .outer {
+            padding: 10px; /* Поля вокруг текста */
+            margin: 10px; /* Выравниваем по центру */
+            background: #fc0; /* Цвет фона */
+            display: inline-block;
+            text-align: justify;
+        }
+    </style>
+
+</head>
+<body>
+<h3 th:text="'Hello '+${user.getUsername()}+'!'"></h3>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"/>
+</form>
+<a th:href="@{/profile}">Посмотреть профиль</a><br>
+<a th:href="@{/users}">Список пользователей</a>
+<a th:href="@{/create/message}">Создать сообщение</a>
+<p th:text="'У вас нет публикаций!'" th:if="${#lists.isEmpty(user.getMessages())}"></p>
+<div th:if="${not #lists.isEmpty(user.getMessages())}">
+    <form th:action="@{/home}" method="get">
+        <p><input type="text" name="filter" placeholder="Фильтр по тегу"></p>
+        <p><input type="submit" value="Отфильтровать"></p>
+    </form>
+    <div class="outer">
+        <div th:each="msg : ${messages}"
+             th:text="${msg}"
+             class="testDiv"></div>
+    </div>
+</div>
+</body>
+</html>

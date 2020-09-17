@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+        table {
+            width:100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        #t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        #t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        #t01 th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h3 th:text="'Список всех пользователей. Вы - '+${currentUser.getUsername()}"></h3>
+<table id="t01">
+    <tr>
+        <td>Псевдоним</td>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Почта</td>
+        <td>Телефон</td>
+        <td>Кол-во сообщений</td>
+        <td>Добавить в друзья</td>
+    </tr>
+    <tr th:each="user : ${allUsers}">
+        <td>
+            <a th:href="@{'/profile/'+${user.getId()}}">
+                <p th:text="(${user.getId()} eq ${currentUser.getId()})? ${user.getUsername()}+' (Вы)' : ${user.getUsername()}"></p>
+            </a>
+        <td th:text="${user.getFirstName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td th:text="${user.getPhoneNumber()}"></td>
+        <td th:text="${user.getMessages().size()}"></td>
+        <td> <a th:href="@{'/add/friend/'+${user.getId()}}" th:text="'Добавить в друзья'"></a> </td>
+    </tr>
+</table>
+</body>
+</html>

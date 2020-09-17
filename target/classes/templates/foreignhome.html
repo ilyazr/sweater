@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .testDiv {
+            border: solid 1px black;
+            display: inline-block;
+            margin: 10px;
+            width: auto;
+        }
+        .outer {
+            padding: 10px; /* Поля вокруг текста */
+            margin: auto; /* Выравниваем по центру */
+            background: #fc0; /* Цвет фона */
+        }
+    </style>
+</head>
+<body>
+<h3 th:text="'Home page of '+${owner.getUsername()}+'!'"></h3>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"/>
+</form>
+<p th:text="'У '+${owner.getUsername()}+' нет публикаций!'" th:if="${#lists.isEmpty(owner.getMessages())}"></p>
+<div th:if="${not #lists.isEmpty(owner.getMessages())}">
+    <form th:action="@{'/profile/'+${owner.getId()}}" method="get">
+        <p><input type="text" name="filter" placeholder="Фильтр по тегу"></p>
+        <p><input type="submit" value="Отфильтровать"></p>
+    </form>
+    <div class="outer">
+        <div th:each="msg : ${foreignMsgs}"
+             th:text="${msg}"
+             class="testDiv"></div>
+    </div>
+</div>
+</body>
+</html>

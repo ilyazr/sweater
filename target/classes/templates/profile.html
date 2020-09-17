@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h3 th:text="'Ваш профиль, '+${user.getUsername()}"></h3>
+<a th:href="@{'/edit/'+${user.getId()}}" >Редактировать профиль</a>
+<br><br>
+    <table>
+        <tr>
+            <td>Псевдоним</td>
+            <td th:text="${user.getUsername()}"></td>
+        </tr>
+        <tr>
+            <td>Имя</td>
+            <td th:text="${user.getFirstName()}"></td>
+        </tr>
+        <tr>
+            <td>Фамилия</td>
+            <td th:text="${user.getLastName()}"></td>
+        </tr>
+        <tr>
+            <td>Почта</td>
+            <td th:text="${user.getEmail()}"></td>
+        </tr>
+        <tr>
+            <td>Номер телефона</td>
+            <td th:text="${user.getPhoneNumber()}"></td>
+        </tr>
+        <tr>
+            <td>Пароль</td>
+            <td th:text="${user.getPassword()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

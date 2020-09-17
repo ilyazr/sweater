@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/first.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <nav class="head-menu">
+            <div class="hello-block">
+                <h1 th:text="'Hello, ' + ${name} + '!'" class="h1-text"></h1>
+            </div>
+        </nav>
+    </header>
+    <main class="mainContainer">
+        <div class="buttons">
+            <label for="c1">
+                <div class="b1">
+                    <a th:href="@{/login}" class="bb1" id="c1">Войти</a>
+                </div>
+            </label>
+            <label for="c2">
+                <div class="b2">
+                    <a th:href="@{/registration}" class="bb2" id="c2">Зарегистрироваться</a>
+                </div>
+            </label>
+        </div>
+    </main>
+    <footer class="footer">Footer</footer>
+</div>
+</body>
+
+<script th:src="@{/js/test.js}"></script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+</head>
+<body>
+<form th:action="@{'/edit/'+${user.getId()}}" method="post" id="my_form" th:object="${user}"></form>
+<h3 th:text="'Редактируем профиль '+${user.getUsername()}"></h3>
+<table>
+    <tr>
+        <td>Псевдоним</td>
+        <td th:text="${user.getUsername()}"></td>
+        <td><input type="text" placeholder="Новый псевдоним" name="username" form="my_form"/></td>
+    </tr>
+    <tr>
+        <td>Имя</td>
+        <td th:text="${user.getFirstName()}"></td>
+        <td><input type="text" placeholder="Новое имя" name="firstName" form="my_form"/></td>
+    </tr>
+    <tr>
+        <td>Фамилия</td>
+        <td th:text="${user.getLastName()}"></td>
+        <td><input type="text" placeholder="Новая фамилия" name="lastName" form="my_form"/></td>
+    </tr>
+    <tr>
+        <td>Почта</td>
+        <td th:text="${user.getEmail()}"></td>
+        <td><input type="text" placeholder="Новая почта" name="email" form="my_form"/></td>
+    </tr>
+    <tr>
+        <td>Номер телефона</td>
+        <td th:text="${user.getPhoneNumber()}"></td>
+        <td><input type="text" placeholder="Новый телефон" name="phoneNumber" form="my_form"/></td>
+    </tr>
+    <tr>
+        <td>Пароль</td>
+        <td th:text="${user.getPassword()}"></td>
+        <td><input type="password" placeholder="Новый пароль" name="password" form="my_form"/></td>
+    </tr>
+</table>
+<input type="submit" value="Редактировать" form="my_form">
+</body>
+</html>

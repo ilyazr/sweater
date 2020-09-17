@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New message</title>
+</head>
+<body>
+<form th:action="@{/create/message}" th:object="${newMessage}" method="post">
+    <p><input type="text" placeholder="Укажите тег" th:field="*{tag}"></p>
+    <p><textarea rows="10" cols="45" name="text" placeholder="Текст сообщения..." th:field="*{text}"></textarea></p>
+    <p><input type="submit" value="Создать"></p>
+</form>
+</body>
+</html>

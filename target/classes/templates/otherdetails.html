@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h3 th:text="'Профиль, '+${owner.getUsername()}"></h3>
+<br><br>
+<table>
+    <tr>
+        <td>Псевдоним</td>
+        <td th:text="${owner.getUsername()}"></td>
+    </tr>
+    <tr>
+        <td>Имя</td>
+        <td th:text="${owner.getFirstName()}"></td>
+    </tr>
+    <tr>
+        <td>Фамилия</td>
+        <td th:text="${owner.getLastName()}"></td>
+    </tr>
+    <tr>
+        <td>Почта</td>
+        <td th:text="${owner.getEmail()}"></td>
+    </tr>
+    <tr>
+        <td>Номер телефона</td>
+        <td th:text="${owner.getPhoneNumber()}"></td>
+    </tr>
+</table>
+</body>
+</html>

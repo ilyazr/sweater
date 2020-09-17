@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        .errorReg {
+            color: #ff5a5f;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/registration}" method="post" th:object="${newUser}">
+    <span th:if="${errorReg} != null" th:text="${errorReg}" th:class="errorReg"></span>
+    <div>
+        <label> User Name : <input type="text"
+                                   name="username"
+                                   th:field="*{username}"/> </label>
+    </div>
+    <div>
+        <label> Password: <input type="password"
+                                 name="password"
+                                 th:field="*{password}"/> </label>
+    </div>
+    <div>
+        <label> Email: <input type="text"
+                                 name="email"
+                                 th:field="*{email}"/> </label>
+    </div>
+    <div>
+        <input type="submit" value="Зарегистрироваться"/>
+    </div>
+</form>
+</body>
+</html>
