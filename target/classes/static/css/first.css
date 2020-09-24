@@ -113,6 +113,61 @@ html, body {
     background-color: mintcream;
 }
 
+.login-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 200px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px -2px #2B384F;
+    background-color: #fdfdfd;
+    font-size: 15px;
+}
+
+.l-details {
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.l-block {
+    display: flex;
+    flex-grow: 1;
+    margin: 20px;
+}
+
+.login-button {
+    display: flex;
+    align-content: center;
+    margin: auto;
+}
+
+.outer-block-login {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.login-button > input[type="submit"] {
+    height: 30px;
+    width: 100px;
+    color: white;
+    background-color: deepskyblue;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.l-block input[type="text"], .l-block input[type="password"] {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
 .layout {
     outline: 2px dashed chocolate;
 }

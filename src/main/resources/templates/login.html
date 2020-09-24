@@ -6,16 +6,40 @@
     <link th:href="@{/css/first.css}" rel="stylesheet" />
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid username and password.
+<div class="container">
+    <header class="header">
+        <nav class="head-menu">
+            <div class="hello-block">
+                <h1 th:text="'Sweater'" class="h1-text"></h1>
+            </div>
+        </nav>
+    </header>
+    <main class="mainContainer">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <div class="login-form">
+            <form th:action="@{/login}" method="post">
+                <div class="outer-block-login">
+                    <div class="login-details">
+                        <div class="l-block login-block1">
+                            <label>User Name :<input type="text" name="username"/></label>
+                        </div>
+                        <div class="l-block login-block2">
+                            <label>Password:<input type="password" name="password"/></label>
+                        </div>
+                    </div>
+                    <div class="login-button">
+                        <input type="submit" value="Войти"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">Footer</footer>
 </div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
 </body>
 </html>
