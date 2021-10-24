@@ -1,0 +1,7 @@
+/logs
+/target
+.idea
+*.iws
+*.iml
+*.ipr
+sweater_backend-db_dump*.sql

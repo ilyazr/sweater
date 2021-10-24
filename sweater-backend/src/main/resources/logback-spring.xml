@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <timestamp key="myTimestamp" datePattern="yyyy-MM-dd'_'HH-mm-ss.SSS"/>
+
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+<!--        <file>logs/sweater-${myTimestamp}.log</file>-->
+        <file>logs/sweater.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    Enable DEBUG level for whole ru.zakharov package-->
+    <logger name="ru.zakharov" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="file" />
+    </root>
+</configuration>
